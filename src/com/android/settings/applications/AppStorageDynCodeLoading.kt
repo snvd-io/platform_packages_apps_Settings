@@ -60,6 +60,8 @@ class AppDefaultStorageDynCodeLoadingPrefController(ctx: Context, key: String) :
 
     override fun getSummaryOn() = resText(R.string.aep_default_summary_restricted)
     override fun getSummaryOff() = resText(R.string.aep_default_summary_allowed_for_3p_apps)
+
+    override fun getAvailabilityStatus() = CONDITIONALLY_UNAVAILABLE
 }
 
 class AppDefaultStorageDynCodeLoadingFragment : BoolSettingFragment() {
@@ -85,6 +87,5 @@ class AppDefaultStorageDynCodeLoadingFragment : BoolSettingFragment() {
 class StorageDynCodeLoadingAppListPrefController(context: Context, preferenceKey: String) :
     AswAppListPrefController(context, preferenceKey, AswAdapterStorageDynCodeLoading) {
 
-    override fun getAvailabilityStatus() = ExtSettingControllerHelper
-        .getSecondaryUserOnlySettingAvailability(mContext)
+    override fun getAvailabilityStatus() = AVAILABLE
 }
